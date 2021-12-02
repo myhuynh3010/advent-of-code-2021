@@ -37,7 +37,7 @@ class Day1Part2 extends Command
      */
     public function handle()
     {
-        $path = storage_path('app/inputs/day1part2.txt');
+        $path = storage_path('app/inputs/day1.txt');
         $input = file($path);
 
         $arrayCount = count($input);
