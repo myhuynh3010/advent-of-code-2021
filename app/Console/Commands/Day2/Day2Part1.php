@@ -38,7 +38,28 @@ class Day2Part1 extends Command
     public function handle()
     {
         $path = storage_path('app/inputs/day2.txt');
-        $input = file($path);
+        $inputs = file($path);
+
+        $horizontal = 0;
+        $depth = 0;
+
+        foreach ($inputs as $input) {
+            $slipDirection = explode(" ", $input);
+            if ($slipDirection[0] === 'forward') {
+                $horizontal +=  (int) $slipDirection[1];
+            }
+            if ($slipDirection[0] === 'down') {
+                $depth +=  (int) $slipDirection[1];
+            }
+            if ($slipDirection[0] === 'up') {
+                $depth -=  (int) $slipDirection[1];
+            }
+        }
+
+        dd($horizontal * $depth);
+
+
+        // dd($input);
 
         return Command::SUCCESS;
     }
